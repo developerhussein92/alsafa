@@ -1,0 +1,38 @@
+$allnumber = 0;
+$usedunit = 0;
+$mykitchen = 0;
+/////////////////
+  $sql55 = "
+  SELECT items.name,items.dest,itemssales.san_code,itemssales.number AS allnumber,itemssales.items_hscode,itemssales.number,itemssales.date_to_store
+  FROM itemssales
+  INNER JOIN  items ON items.hscode = itemssales.items_hscode 
+  WHERE itemssales.items_hscode = '$items_hscode'  AND  date(date_to_store) = '$curday'; 
+  ";
+  $result55 = mysqli_query($conn, $sql55);
+  if (mysqli_num_rows($result55) > 0) {
+  
+    // output data of each row
+    while($row55 = mysqli_fetch_assoc($result55)) {
+      $name =  $row55['name'];
+      $san_code = $row55['san_code'];
+      $allnumber += $row55['allnumber'];
+      $alone = $row55['allnumber'];
+      $dest = $row55['dest'];
+      $sql22 = "
+  SELECT percentage
+  FROM itemssan
+  WHERE items_hscode = '$items_hscode' AND san_code = '$san_code'
+
+  ";
+  $result22 = mysqli_query($conn, $sql22);
+  if (mysqli_num_rows($result22) > 0) {
+    // output data of each row
+    while($row22 = mysqli_fetch_assoc($result22)) {
+       $percentage = $row22['percentage'];
+       // echo "hscode: ".$items_hscode."  sancode : ".$san_code." percentage: ".$percentage."<br/>";
+        $usedunit +=$alone*$percentage;  
+    }}
+    $mykitchen = $usedunit+($usedunit*$dest);
+  }
+
+    } 

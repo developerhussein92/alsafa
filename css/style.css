@@ -1,0 +1,86 @@
+thead
+{
+    background-color:#3c3232;
+    font-family: monospace;
+    font-size:20px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.alert
+{
+    margin-top:50px;
+    margin-bottom:10px;
+    text-align:center
+}
+.lop
+{
+    margin-right: 50%;
+    transform: translateX(+10px);
+}
+.table-dark td, .table-dark th, .table-dark thead th 
+{
+    border-color: #ac42b3;
+}
+.main
+{
+    background-image : url(../images/logo.jpg);
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    top: 0;
+    left: 150px;
+
+}
+li a
+{
+   
+    color:black;
+    transition: all .4s ease-in-out;
+    
+}
+
+li a:hover{
+    
+    background-color:blue;
+}
+.dropdown-menu
+{
+    overflow: hidden;
+    
+}
+
+.dropdown-menu  a
+{
+    
+    color:black;
+    
+    transition: all .4s ease-in-out;
+    
+}
+.dropdown-menu  a:hover
+{
+  
+    transform: translate(-2px);
+    border-right:4px solid red;
+    
+}
+input[type="text"],textarea,input[type="email"]
+{
+    border-color: #ac42b3 !important;
+}
+td{
+    text-align: center;
+}
+.abas
+{
+    column-span: 2;
+    
+}
+@media print
+{
+    .searchclass
+    {
+        display: none;
+    }
+}
